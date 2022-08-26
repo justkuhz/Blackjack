@@ -31,12 +31,11 @@ void play();
 void mainMenuSelection();
 int selectDecks();
 void shuffleInfo(int& cards, int& sCard, int& deckNum);
-deque<string> shuffle(int deckSize);
-
-//made a change just testing git
+deque<string> shuffle(vector<string> deck);
+vector<string> generateDeck(int decks);
 
 int main() {
-	srand(time(NULL));
+	srand(static_cast<unsigned int>(time(nullptr)));
 	printWelcome();
 	printMainMenu();
 	mainMenuSelection();
@@ -124,10 +123,10 @@ int selectDecks() {
 void play() {
 
 	int money = 100;
-	int totalCards, cardsDealt, shuffleIndex, decks = 0;
+	int totalCards = 0, cardsDealt = 0, shuffleIndex = 0, decks = 0;
 
 	shuffleInfo(totalCards, shuffleIndex, decks);
-	shuffle(decks);
+	shuffle(generateDeck(decks));
 
 	while (true) {
 		// Loop
@@ -167,9 +166,64 @@ void shuffleInfo(int& cards, int& sCard, int& deckNum) {
 	sCard = sCard + (rand() % sCard);
 }
 
-deque<string> shuffle(int deckSize) {
+vector<string> generateDeck(int decks) {
 
-	// generate a deque of all the cards (A, 2, 3, 4...)
+	vector<string> deck;
+
+	switch (decks) {
+
+		case 1:
+			deck = { "A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K" }; 
+			break;
+
+		case 2:
+			deck = { "A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K",
+			"A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K" };
+			break;
+
+		case 3:
+			deck = { "A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K",
+			"A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K",
+			"A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K" };
+			break;
+
+		case 4:
+			deck = { "A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K",
+			"A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K",
+			"A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K",
+			"A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K" };
+			break;
+
+		case 5:
+			deck = { "A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K",
+			"A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K",
+			"A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K",
+			"A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K",
+			"A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K" };
+			break;
+
+		case 6:
+			deck = { "A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K",
+			"A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K",
+			"A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K",
+			"A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K",
+			"A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K",
+			"A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K" };
+			break;
+
+		default: cout << "Something went wrong with the generateDeck function"; exit(1);
+	}
+
+	for (int i = 0; i < deck.size(); i++) {
+		cout << deck[i] << " ";
+	}
+	return deck;
+}
+
+deque<string> shuffle(vector<string> deck) {
+	
+	deque<string> shuffledDeck;
+	return shuffledDeck;
 }
 
 
