@@ -72,7 +72,7 @@ void printTutorial() {
 
 void mainMenuSelection() {
 
-	char input = 0;
+	char input = -1;
 
 	do {
 
@@ -123,7 +123,7 @@ int selectDecks() {
 void play() {
 
 	int money = 100;
-	int totalCards = 0, cardsDealt = 0, shuffleIndex = 0, decks = 0;
+	int totalCards = -1, cardsDealt = -1, shuffleIndex = -1, decks = -1;
 
 	shuffleInfo(totalCards, shuffleIndex, decks);
 	shuffle(generateDeck(decks));
