@@ -33,6 +33,7 @@ int selectDecks();
 void shuffleInfo(int& cards, int& sCard, int& deckNum);
 deque<string> shuffle(int deckSize);
 
+//made a change just testing git
 
 int main() {
 	srand(time(NULL));
